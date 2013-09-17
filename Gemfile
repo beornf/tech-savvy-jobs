@@ -8,9 +8,13 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec-rails'
-  gem 'wirble'
+  gem 'simplecov'
   gem 'hirb'
+  gem 'wirble'
   gem 'awesome_print'
+  gem 'quiet_assets'
+  gem 'rails_admin'
+  gem 'seed_dump'
 end
 
 group :test do
@@ -32,6 +36,7 @@ end
 
 gem 'jquery-rails', '3.0.4'
 gem 'debugger', '1.6.1'
+gem 'devise', '3.1.0'
 gem 'haml', '4.0.3'
 
 # To use ActiveModel has_secure_password

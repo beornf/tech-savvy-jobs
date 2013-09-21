@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(:version => 20130916160041) do
     t.boolean  "active",     :default => false
     t.string   "name"
     t.string   "url"
-    t.text     "hook"
+    t.text     "fetch"
     t.text     "list"
     t.boolean  "newer",      :default => true
     t.boolean  "rss",        :default => true
-    t.integer  "view_count", :default => 0
+    t.integer  "total",      :default => 0
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
@@ -47,17 +47,20 @@ ActiveRecord::Schema.define(:version => 20130916160041) do
   add_index "feeds", ["url"], :name => "index_feeds_on_url", :unique => true
 
   create_table "leads", :force => true do |t|
-    t.integer  "feed_id",    :null => false
+    t.datetime "date",       :null => false
     t.string   "title"
-    t.string   "link"
-    t.string   "source"
-    t.datetime "posted_at",  :null => false
-    t.string   "job_hash",   :null => false
+    t.string   "url",        :null => false
+    t.integer  "feed_id",    :null => false
+    t.string   "geo"
+    t.string   "site"
+    t.text     "content"
+    t.string   "digest",     :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "leads", ["job_hash"], :name => "index_leads_on_job_hash", :unique => true
+  add_index "leads", ["digest"], :name => "index_leads_on_digest", :unique => true
+  add_index "leads", ["feed_id"], :name => "index_leads_on_feed_id"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

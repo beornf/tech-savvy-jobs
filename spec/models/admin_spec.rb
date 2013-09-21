@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Admin do
-  describe 'With admin in the database' do
+  describe 'created in the database' do
     before(:each) do
       @admin = Admin.new :email => 'david@techsvvyjobs.com'
       @pass = 'nobody'

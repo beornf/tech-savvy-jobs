@@ -4,11 +4,11 @@ class CreateFeeds < ActiveRecord::Migration
       t.boolean :active, :default => false
       t.string :name
       t.string :url
-      t.text :hook
+      t.text :fetch
       t.text :list
       t.boolean :newer, :default => true
       t.boolean :rss, :default => true
-      t.integer :view_count, :default => 0
+      t.integer :total, :default => 0
 
       t.timestamps
     end

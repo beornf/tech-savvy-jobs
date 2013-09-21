@@ -1,16 +1,19 @@
 class CreateLeads < ActiveRecord::Migration
   def change
     create_table :leads do |t|
-      t.integer :feed_id, :null => false
+      t.datetime :date, :null => false
       t.string :title
-      t.string :link
-      t.string :source
-      t.datetime :posted_at, :null => false
-      t.string :job_hash, :null => false
+      t.string :url, :null => false
+      t.integer :feed_id, :null => false
+      t.string :geo
+      t.string :site
+      t.text :content
+      t.string :digest, :null => false
 
       t.timestamps
     end
 
-    add_index :leads, :job_hash, :unique => true
+    add_index :leads, :feed_id
+    add_index :leads, :digest, :unique => true
   end
 end

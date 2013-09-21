@@ -14,6 +14,12 @@ RailsAdmin.config do |config|
   # RailsAdmin may need a way to know who the current user is]
   config.current_user_method { current_admin } # auto-generated
 
+  # Enable authorization in models
+  config.authorize_with :cancan
+
+  # Customize items per page
+  config.default_items_per_page = 18
+
   # If you want to track changes on your models:
   # config.audit_with :history, 'Admin'
 
@@ -113,15 +119,42 @@ RailsAdmin.config do |config|
       configure :id do
         sort_reverse false
       end
-      configure :hook do
+      configure :fetch do
         hide
       end
       configure :list do
         hide
       end
     end
+
+    edit do
+      configure :total do
+        hide
+      end
+    end
   end
 
+
+  config.model 'Lead' do
+    list do
+      sort_by :date
+      configure :date do
+        strftime_format "%a %d %b %H:%M"
+      end
+      configure :id do
+        hide
+      end
+      configure :digest do
+        hide
+      end
+    end
+
+    edit do
+      configure :digest do
+        hide
+      end
+    end
+  end
 
 
   #   # Found columns:

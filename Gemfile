@@ -7,11 +7,12 @@ group :development, :test do
   gem 'sqlite3'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'rspec-rails'
   gem 'simplecov'
   gem 'hirb'
   gem 'wirble'
   gem 'awesome_print'
+  gem 'cancan'
+  gem 'debugger'
   gem 'quiet_assets'
   gem 'rails_admin'
   gem 'seed_dump'
@@ -19,6 +20,9 @@ end
 
 group :test do
   gem 'cucumber-rails', :require => false
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'random_data'
 end
 
 group :production do
@@ -35,8 +39,8 @@ group :assets do
 end
 
 gem 'jquery-rails', '3.0.4'
-gem 'debugger', '1.6.1'
 gem 'devise', '3.1.0'
+gem 'feedzirra', '0.0.24'
 gem 'haml', '4.0.3'
 
 # To use ActiveModel has_secure_password

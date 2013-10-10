@@ -18,7 +18,7 @@ RailsAdmin.config do |config|
   config.authorize_with :cancan
 
   # Customize items per page
-  config.default_items_per_page = 18
+  config.default_items_per_page = 30
 
   # If you want to track changes on your models:
   # config.audit_with :history, 'Admin'
@@ -128,14 +128,23 @@ RailsAdmin.config do |config|
     end
 
     edit do
-      configure :total do
+      configure :count do
         hide
+      end
+      configure :fetch do
+        html_attributes rows: 6, cols: 48
       end
     end
   end
 
+  
+  ###  Lead  ###
 
   config.model 'Lead' do
+    configure :digest do
+      hide
+    end
+
     list do
       sort_by :date
       configure :date do
@@ -144,13 +153,13 @@ RailsAdmin.config do |config|
       configure :id do
         hide
       end
-      configure :digest do
-        hide
-      end
     end
 
-    edit do
-      configure :digest do
+    show do
+      configure :id do
+        show
+      end
+      configure :date do
         hide
       end
     end

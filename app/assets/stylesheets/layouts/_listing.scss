@@ -1,0 +1,44 @@
+$light: #888;
+
+#listing {
+  list-style-type: none;
+  padding: 0 7px;
+  margin-top: 0;
+  li {
+    border-bottom: 1px solid #ddd;
+    padding: 5px 11px 8px;
+  }
+  h4 {
+    margin: 5px 0;
+    font-size: 1.1em;
+  }
+  a {
+    text-decoration: none;
+    padding: 4px 0;
+    color: $black;
+    &:hover {
+      color: $hover;
+    }
+  }
+  p {
+    margin: 5px 0 6px;
+    font-size: 13px;
+    span {
+      font-style: italic;
+      color: $light;
+    }
+  }
+  .desc {
+    width: 98%;
+    color: $light;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .post {
+    float: right;
+    margin: 7px 5px;
+    font-size: 12px;
+    color: $light;
+  }
+}

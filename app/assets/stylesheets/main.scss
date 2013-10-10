@@ -9,5 +9,18 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
+
+// Mixins
+@import "bourbon";
+
+// Partials
+@import "layouts/base";
+@import "layouts/design";
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/listing";
+
+// Web fonts
+@import "vendor/google/web-fonts";
+@include web-font((Rambla), (bold));

@@ -8,7 +8,7 @@ class CreateFeeds < ActiveRecord::Migration
       t.text :list
       t.boolean :newer, :default => true
       t.boolean :rss, :default => true
-      t.integer :total, :default => 0
+      t.integer :count, :default => 0
 
       t.timestamps
     end

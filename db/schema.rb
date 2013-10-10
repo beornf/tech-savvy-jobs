@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20130916160041) do
     t.text     "list"
     t.boolean  "newer",      :default => true
     t.boolean  "rss",        :default => true
-    t.integer  "total",      :default => 0
+    t.integer  "count",      :default => 0
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
@@ -49,18 +49,21 @@ ActiveRecord::Schema.define(:version => 20130916160041) do
   create_table "leads", :force => true do |t|
     t.datetime "date",       :null => false
     t.string   "title"
-    t.string   "url",        :null => false
-    t.integer  "feed_id",    :null => false
-    t.string   "geo"
+    t.string   "company"
+    t.string   "location"
     t.string   "site"
+    t.integer  "feed_id",    :null => false
+    t.text     "apply"
     t.text     "content"
     t.string   "digest",     :null => false
+    t.string   "url",        :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   add_index "leads", ["digest"], :name => "index_leads_on_digest", :unique => true
   add_index "leads", ["feed_id"], :name => "index_leads_on_feed_id"
+  add_index "leads", ["url"], :name => "index_leads_on_url", :unique => true
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

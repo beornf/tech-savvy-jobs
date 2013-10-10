@@ -1,0 +1,36 @@
+#layout
+  #option{:class => 'pure-u'}
+    %h3 Category
+    %ul
+      %li Design
+      %li Engineer
+      %li Management
+
+    %h3 Experience
+    %ul
+      %li Junior
+      %li Mid-level
+      %li Senior
+
+    %h3 Location
+    %ul
+      %li San Francisco
+      %li New York
+
+  #main{:class => 'pure-u-1'}
+    %h2= "#{Lead.all.count} Jobs"
+    %ul{:id => 'listing'}
+      - Lead.find(:all, :limit => 20, :order => 'date DESC').each do |lead|
+        %li
+          %p{:class => 'post'}= time_ago_in_words(lead.date, true, {:highest_measure_only => true}) + ' ago'
+          %h4= link_to short_title(lead.title), page_path('demo')
+          %p=raw "#{lead.company} - <span>#{lead.location}</span>"
+          %p{:class => 'desc'}= summary(lead.content)
+
+  #promo{:class => 'pure-u-1 pure-hidden-phone'}
+    %h3 Connect With Us
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

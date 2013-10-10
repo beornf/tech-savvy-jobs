@@ -1,0 +1,22 @@
+#footer {
+  @include gutter;
+  font-size: 12px;
+  color: $grey;
+  .wrapper {
+    padding: 27px;
+    text-align: center;
+  }
+  .nav-menu a {
+    @extend #footer;
+    font-weight: $bold;
+    text-decoration: none;
+    padding: 4px;
+    &:hover {
+      color: $black;
+    }
+  }
+  .copyright {
+    margin: 26px 0 14px;
+    font-size: 11px;
+  }
+}

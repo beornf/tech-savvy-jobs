@@ -1,0 +1,53 @@
+#header {
+  @include linear-gradient(to top, #222, #333);
+  font-size: 15px;
+  a {
+    color: #ccc;
+  }
+  .pure-menu {
+    @include gutter;
+    background: transparent;
+    letter-spacing: normal;
+  }
+}
+
+#header .pure-menu-heading {
+  background: url("/assets/logo.png") 4px 2px no-repeat;
+  font-family: Rambla;
+  font-size: 17px;
+  padding: 10px 8px 9px 62px;
+  margin-right: 24px;
+  text-transform: none;
+  color: white;
+  opacity: 0.74;
+  span {
+    color: #45a873;
+  }
+  @include hover {
+    @include transition(opacity 0.25s ease-in);
+    opacity: 1;
+  }
+}
+
+#header ul {
+  height: 3.15em;
+  &.right {
+    @extend #header;
+  }
+}
+
+#header li {
+  float: left;
+  a {
+    padding: 0.8em 19px 0.85em;
+    border: 0 none;
+    @include hover {
+      @include transition(background 0.15s ease-in);
+      background: #444;
+    }
+  }
+  &.selected a {
+    background: $green;
+    color: white;
+  }
+}

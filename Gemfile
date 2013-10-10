@@ -8,14 +8,17 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'simplecov'
-  gem 'hirb'
-  gem 'wirble'
-  gem 'awesome_print'
+  gem 'bourbon'
   gem 'cancan'
   gem 'debugger'
+  gem 'haml-rails'
+  gem 'hirb'
   gem 'quiet_assets'
   gem 'rails_admin'
   gem 'seed_dump'
+  gem 'whenever'
+  gem 'wirble'
+  gem 'wombat'
 end
 
 group :test do
@@ -26,22 +29,25 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.16.0'
+  gem 'pg'
 end
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'therubyracer', '0.12.0'
-  gem 'sass-rails', '3.2.6'
-  gem 'coffee-rails', '3.2.2'
-  gem 'uglifier', '2.2.1'
+  gem 'therubyracer'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails', '3.0.4'
 gem 'devise', '3.1.0'
+gem 'dotiw', '1.1.1'
 gem 'feedzirra', '0.0.24'
 gem 'haml', '4.0.3'
+gem 'high_voltage', '1.2.4'
+gem 'settingslogic', '2.0.9'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

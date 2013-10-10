@@ -6,31 +6,30 @@ class Feed < ActiveRecord::Base
   validates_presence_of :name, :url
   validates_uniqueness_of :url
 
-  def scrape
-    if result = leads
-      Lead.create result
-      self.total += 1
-      self.save
-    end
+  def crawl
+    Lead.create leads
+    self.count += 1
+    save
   end
 
   def leads
-    if self.newer or self.updated_at < 23.hours.ago
-      @leads = []
-      if self.rss then rss_leads else html_leads end
-      @leads.each { |lead| lead[:feed_id] = self.id }
-    else
-      nil
-    end
+    @leads = []
+    if rss then rss_leads else html_leads end
+    @leads.each { |lead| lead[:feed_id] = id }
+  end
+
+  def route(entry)
+    entry.split('?').first
   end
 
   def rss_leads
-    feed = Feedzirra::Feed.fetch_and_parse(self.url)
+    feed = Feedzirra::Feed.fetch_and_parse(url)
     feed.entries.each do |t|
-      title, date, url = t.title, t.published, t.entry_id
-      uniq = Spider.digest(title + date.to_s)
-      if Lead.exists?(:digest => uniq); break end
-      @leads << { :title => title, :date => date, :digest => uniq, :url => url }
+      title, date, link = t.title, t.published, route(t.url)
+      digest = Spider.digest(title + date.to_s)
+      if Lead.exists?(["digest = ? OR url = ?", digest, link]); break end
+      @leads << { :title => title, :date => date, :digest => digest,
+        :url => link }
     end
   end
 

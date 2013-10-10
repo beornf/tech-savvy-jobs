@@ -11,4 +11,5 @@
 # Ignore other unneeded files.
 /.rspec
 database.yml
+coverage/
 doc/

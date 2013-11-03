@@ -46,24 +46,25 @@ ActiveRecord::Schema.define(:version => 20130916160041) do
 
   add_index "feeds", ["url"], :name => "index_feeds_on_url", :unique => true
 
-  create_table "leads", :force => true do |t|
-    t.datetime "date",       :null => false
+  create_table "jobs", :force => true do |t|
+    t.datetime "date",                          :null => false
     t.string   "title"
     t.string   "company"
     t.string   "location"
     t.string   "site"
-    t.integer  "feed_id",    :null => false
+    t.integer  "feed_id",                       :null => false
     t.text     "apply"
     t.text     "content"
-    t.string   "digest",     :null => false
-    t.string   "url",        :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "digest",                        :null => false
+    t.string   "url",                           :null => false
+    t.boolean  "publish",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
-  add_index "leads", ["digest"], :name => "index_leads_on_digest", :unique => true
-  add_index "leads", ["feed_id"], :name => "index_leads_on_feed_id"
-  add_index "leads", ["url"], :name => "index_leads_on_url", :unique => true
+  add_index "jobs", ["digest"], :name => "index_jobs_on_digest", :unique => true
+  add_index "jobs", ["feed_id"], :name => "index_jobs_on_feed_id"
+  add_index "jobs", ["url"], :name => "index_jobs_on_url", :unique => true
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

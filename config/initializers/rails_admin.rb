@@ -137,10 +137,10 @@ RailsAdmin.config do |config|
     end
   end
 
-  
-  ###  Lead  ###
 
-  config.model 'Lead' do
+  ###  Job  ###
+
+  config.model 'Job' do
     configure :digest do
       hide
     end
@@ -151,6 +151,9 @@ RailsAdmin.config do |config|
         strftime_format "%a %d %b %H:%M"
       end
       configure :id do
+        hide
+      end
+      configure :url do
         hide
       end
     end

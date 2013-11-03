@@ -222,9 +222,7 @@ GEM
       tilt (~> 1.3)
     sax-machine (0.1.0)
       nokogiri (> 0.0.0)
-    seed_dump (1.0.0)
-      activerecord
-      activesupport
+    seed_dump (0.6.0)
     settingslogic (2.0.9)
     simplecov (0.7.1)
       multi_json (~> 1.0)
@@ -287,6 +285,7 @@ DEPENDENCIES
   high_voltage (= 1.2.4)
   hirb
   jquery-rails (= 3.0.4)
+  kaminari
   pg
   quiet_assets
   rails (= 3.2.14)
@@ -294,7 +293,7 @@ DEPENDENCIES
   random_data
   rspec-rails
   sass-rails
-  seed_dump
+  seed_dump (= 0.6.0)
   settingslogic (= 2.0.9)
   simplecov
   sqlite3

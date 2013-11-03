@@ -7,33 +7,33 @@ class Feed < ActiveRecord::Base
   validates_uniqueness_of :url
 
   def crawl
-    Lead.create leads
+    Jobs.create jobs
     self.count += 1
     save
   end
 
-  def leads
-    @leads = []
-    if rss then rss_leads else html_leads end
-    @leads.each { |lead| lead[:feed_id] = id }
+  def jobs
+    @jobs = []
+    if rss then rss_jobs else html_jobs end
+    @jobs.each { |job| job[:feed_id] = id }
   end
 
   def route(entry)
     entry.split('?').first
   end
 
-  def rss_leads
+  def rss_jobs
     feed = Feedzirra::Feed.fetch_and_parse(url)
     feed.entries.each do |t|
       title, date, link = t.title, t.published, route(t.url)
       digest = Spider.digest(title + date.to_s)
-      if Lead.exists?(["digest = ? OR url = ?", digest, link]); break end
-      @leads << { :title => title, :date => date, :digest => digest,
+      if Job.exists?(["digest = ? OR url = ?", digest, link]); break end
+      @jobs << { :title => title, :date => date, :digest => digest,
         :url => link }
     end
   end
 
-  def html_leads
+  def html_jobs
 
   end
 end

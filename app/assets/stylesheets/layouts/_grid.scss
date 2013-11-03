@@ -1,0 +1,29 @@
+$option-width: 165px;
+$promo-width: 238px;
+$promo-pad: 16px;
+
+#container {
+  @include gutter(14px, 7px);
+}
+
+#layout {
+  padding-left: $option-width;
+  padding-right: $promo-width;
+  position: relative;
+}
+
+#main h2 {
+  margin: 13px 0 0.5em;
+}
+
+#option {
+  margin-left: -$option-width;
+  width: $option-width;
+  height: 0;
+}
+
+#promo {
+  padding-left: $promo-pad;
+  width: $promo-width - $promo-pad;
+  position: absolute;
+}

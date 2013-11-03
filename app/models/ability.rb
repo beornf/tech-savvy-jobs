@@ -6,7 +6,7 @@ class Ability
     can :dashboard
     can [:read, :show, :edit, :destroy, :history], :all
     can :create, Feed
-    can :export, Lead
+    can :export, Job
 
     # Define abilities for the passed in user here. For example:
     #

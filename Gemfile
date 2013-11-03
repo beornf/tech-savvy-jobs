@@ -13,9 +13,9 @@ group :development, :test do
   gem 'debugger'
   gem 'haml-rails'
   gem 'hirb'
+  gem 'kaminari'
   gem 'quiet_assets'
   gem 'rails_admin'
-  gem 'seed_dump'
   gem 'whenever'
   gem 'wirble'
   gem 'wombat'
@@ -47,6 +47,7 @@ gem 'dotiw', '1.1.1'
 gem 'feedzirra', '0.0.24'
 gem 'haml', '4.0.3'
 gem 'high_voltage', '1.2.4'
+gem 'seed_dump', '0.6.0'
 gem 'settingslogic', '2.0.9'
 
 # To use ActiveModel has_secure_password

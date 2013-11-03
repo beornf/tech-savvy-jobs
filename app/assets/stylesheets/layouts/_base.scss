@@ -1,24 +1,29 @@
 $bold: 600;
 $black: #222;
-$green: #37875c;
 $grey: #777;
+$green: #078c40;
 $hover: #146f3e;
 
 html, body {
-  background-color: #fff8f2;
+  background-color: #fffaf4; //#fff8f2;
   font-size: 14px;
   color: $black;
+}
+
+@mixin web-font($fonts) {
+  $url: "http://fonts.googleapis.com/css?family=";
+  @import url($url + $fonts);
+}
+
+@mixin gutter($top: 0, $mod: 0) {
+  margin: $top auto 0;
+  max-width: 1140px + $mod;
 }
 
 @mixin hover {
   &:hover, &:focus {
     @content;
   }
-}
-
-@mixin gutter($top: 0) {
-  margin: $top auto 0;
-  max-width: 1140px;
 }
 
 .right {

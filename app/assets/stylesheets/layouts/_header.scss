@@ -19,18 +19,18 @@
   margin-right: 24px;
   text-transform: none;
   color: white;
-  opacity: 0.74;
+  opacity: 0.78;
   span {
     color: #45a873;
   }
   @include hover {
-    @include transition(opacity 0.25s ease-in);
+    @include transition(opacity 0.2s ease-in);
     opacity: 1;
   }
 }
 
 #header ul {
-  height: 3.15em;
+  height: 3.55em;
   &.right {
     @extend #header;
   }
@@ -39,7 +39,7 @@
 #header li {
   float: left;
   a {
-    padding: 0.8em 19px 0.85em;
+    padding: 1em 19px 1.05em;
     border: 0 none;
     @include hover {
       @include transition(background 0.15s ease-in);

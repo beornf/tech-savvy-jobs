@@ -7,7 +7,6 @@
     %meta{name: 'keywords', content: meta_keywords}
     %meta{name: 'viewport', content: meta_viewport}
     %title= page_title(yield(:page_name))
-    = stylesheet_link_tag pure_url
     = stylesheet_link_tag 'main', media: 'all'
     = javascript_include_tag 'application'
     = favicon_link_tag
@@ -18,17 +17,17 @@
   %body
     #header
       %div{:class => 'pure-menu pure-menu-open pure-menu-horizontal pure-g-r'}
-        %a{:href => root_path, :class => 'pure-menu-heading'}
+        %a.pure-menu-heading{:href => root_path}
           =raw 'Tech <span>Savvy</span> Jobs'
         %ul
-          = nav_links({root: 'Search', post: 'Post Job', pricing: 'Pricing', about: 'About Us'})
+          = page_links({root: 'Search', post: 'Post Job'})
         %ul{:class => 'right pure-u'}
-          = nav_links({contact: 'Contact Us', login: 'Sign In'})
-    #container{:class => 'pure-g-r'}
+          = page_links({contact: 'Contact Me', login: 'Sign In'})
+    #container
       = yield
     #footer
       .wrapper
         .nav-menu
-          = nav_links({root: 'Search', post: 'Post Job', about: 'About Us', faq: 'FAQs', contact: 'Contact Us'}, false)
+          = page_links({root: 'Search', post: 'Post Job', contact: 'Contact Me', login: 'Sign In'}, false)
         .copyright
           = "&#169; 2013 #{title} Pty Ltd".html_safe

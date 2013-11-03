@@ -1,0 +1,23 @@
+#promo h3 {
+  text-align: center;
+}
+
+.social {
+  line-height: 0;
+  text-align: center;
+  a {
+    width: 50px;
+    height: 45px;
+    margin-right: 10px;
+    font-size: 0;
+    display: inline-block;
+  }
+}
+
+.facebook {
+  background: #00b;
+}
+
+.twitter {
+  background: #099;
+}

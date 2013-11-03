@@ -1,19 +1,14 @@
 module ApplicationHelper
-  def method_missing(method, *args, &block)
-    value = Settings.get(method.to_s)
-    if value.present?
-      value
-    else
-      super
-    end
-  end
-
-  def nav_links(pages, menu=true)
+  def page_links(pages, menu=true)
     capture_haml do
       head = true
       pages.each do |name, text|
         name = name.to_s
-        path = name == 'root' ? root_path : page_path(name)
+        path = if name == 'root'
+          root_path
+        else
+          page_path(name)
+        end
         if menu
           haml_tag :li, :class => (path == request.fullpath ?
             'selected' : '') do
@@ -21,13 +16,22 @@ module ApplicationHelper
           end
         else
           if not head
-            haml_concat '&#183;'
+            haml_concat '&#183;'.html_safe
           else
             head = false
           end
           haml_concat link_to text, path
         end
       end
+    end
+  end
+
+  def method_missing(method, *args, &block)
+    value = Settings.get(method.to_s)
+    if value.present?
+      value
+    else
+      super
     end
   end
 

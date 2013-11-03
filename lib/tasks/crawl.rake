@@ -10,19 +10,19 @@ namespace :crawl do
     feeds.each { |t| t.crawl }
   end
 
-  desc "Extract lead fields"
-  task :lead => :environment do
-    if id = ENV['LEAD_ID']
-      leads = Lead.where(:feed_id => Feed.where("fetch IS NOT NULL")).
+  desc "Extract job fields"
+  task :job => :environment do
+    if id = ENV['JOB_ID']
+      jobs = Job.where(:feed_id => Feed.where("fetch IS NOT NULL")).
         where(:id => id)
     else
-      leads = Lead.where(:feed_id => Feed.where(:active => true))
-      leads = leads.where(:content => nil) if ENV['FORCE'].nil?
+      jobs = Job.where(:feed_id => Feed.where(:active => true))
+      jobs = jobs.where(:content => nil) if ENV['FORCE'].nil?
     end
-    Spider.visit(leads).each { |t| t.extract(true) }
+    Spider.visit(jobs).each { |t| t.extract(true) }
   end
 
-  task :all => [:feed, :lead]
+  task :all => [:feed, :job]
 end
 
 desc "Scrape all job resources"

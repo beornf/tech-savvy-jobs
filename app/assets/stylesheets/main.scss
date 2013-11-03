@@ -16,11 +16,14 @@
 
 // Partials
 @import "layouts/base";
-@import "layouts/design";
 @import "layouts/header";
 @import "layouts/footer";
+@import "layouts/grid";
 @import "layouts/listing";
+@import "layouts/promo";
 
-// Web fonts
-@import "vendor/google/web-fonts";
-@include web-font((Rambla), (bold));
+// Pure css
+@import "vendor/pure";
+
+// Google fonts
+//@include web-font("Rambla:600")

@@ -7,7 +7,7 @@ describe ApplicationHelper do
     end
   end
 
-  describe "nav links" do
+  describe "page links" do
     before(:all) do
       base = Class.new do
         include ApplicationHelper
@@ -26,10 +26,10 @@ describe ApplicationHelper do
       first = true
       links.each do |name, path|
         if first
-          method = "=nav_links({about: 'About', jobs: 'Jobs'}, false)"
+          method = "=page_links({about: 'About', jobs: 'Jobs'}, false)"
           first = false
         else
-          method = "= nav_links({root: 'Welcome', jobs: 'Jobs'})"
+          method = "= page_links({root: 'Welcome', jobs: 'Jobs'})"
         end
         instance_variable_set("@#{name.to_s}",
           Nokogiri::HTML::DocumentFragment.parse(

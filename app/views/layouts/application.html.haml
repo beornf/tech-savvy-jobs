@@ -8,7 +8,6 @@
     %meta{name: 'viewport', content: meta_viewport}
     %title= page_title(yield(:page_name))
     = stylesheet_link_tag 'main', media: 'all'
-    = javascript_include_tag 'application'
     = favicon_link_tag
     = csrf_meta_tags
     /[if lt IE 9]
@@ -22,12 +21,15 @@
         %ul
           = page_links({root: 'Search', post: 'Post Job'})
         %ul{:class => 'right pure-u'}
-          = page_links({contact: 'Contact Me', login: 'Sign In'})
+          = page_links({contact: 'Contact Us', login: 'Sign In'})
     #container
       = yield
     #footer
       .wrapper
         .nav-menu
-          = page_links({root: 'Search', post: 'Post Job', contact: 'Contact Me', login: 'Sign In'}, false)
+          = page_links({root: 'Search', post: 'Post Job', contact: 'Contact Us', login: 'Sign In'}, false)
         .copyright
           = "&#169; 2013 #{title} Pty Ltd".html_safe
+
+    = stylesheet_link_tag jui_url, media: 'all'
+    = javascript_include_tag 'application'

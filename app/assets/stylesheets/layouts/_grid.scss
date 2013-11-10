@@ -1,9 +1,15 @@
 $option-width: 165px;
 $promo-width: 238px;
-$promo-pad: 16px;
+$promo-pad: 18px;
 
 #container {
   @include gutter(14px, 7px);
+}
+
+#main h2 {
+  margin: 15px 22px 0.25em;
+  font-family: Rambla;
+  text-align: right;
 }
 
 #layout {
@@ -12,11 +18,7 @@ $promo-pad: 16px;
   position: relative;
 }
 
-#main h2 {
-  margin: 13px 0 0.5em;
-}
-
-#option {
+#refine {
   margin-left: -$option-width;
   width: $option-width;
   height: 0;

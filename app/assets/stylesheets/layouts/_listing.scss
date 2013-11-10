@@ -1,37 +1,6 @@
 $light: #888;
 $page-height: 26px;
 
-.pagination {
-  padding: 9px 0 11px 9%;
-  text-align: center;
-  span {
-    margin-right: 8px;
-    &.page {
-      border: 2px solid #ccc;
-      width: 30px;
-      height: $page-height;
-      line-height: $page-height;
-      background: #fff;
-      display: inline-block;
-      a {
-        text-decoration: none;
-        width: 100%;
-        height: 100%;
-        color: $black;
-        display: block;
-      }
-    }
-    &.current {
-      border-color: #444;
-      background: $green;
-      color: white;
-    }
-    &.gap {
-      color: $grey;
-    }
-  }
-}
-
 #listing {
   list-style-type: none;
   padding: 0 7px;
@@ -72,5 +41,51 @@ $page-height: 26px;
     margin: 7px 5px;
     font-size: 12px;
     color: $light;
+  }
+}
+
+#search {
+  padding: 0 12px;
+  h4 {
+    margin: 1.5em 0 0.5em 9px;
+    color: $green;
+  }
+  input {
+    font-size: 15px;
+    width: 7em;
+  }
+  .tagit {
+    margin: 10px 5px;
+  }
+}
+
+.pagination {
+  padding: 9px 0 10px 9%;
+  text-align: center;
+  span {
+    margin-right: 8px;
+    &.page {
+      border: 2px solid #ccc;
+      width: 30px;
+      height: $page-height;
+      line-height: $page-height;
+      background: #fff;
+      display: inline-block;
+      a {
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        color: $black;
+        display: block;
+      }
+    }
+    &.current {
+      border-color: #444;
+      background: $green;
+      color: white;
+    }
+    &.gap {
+      color: $grey;
+    }
   }
 }

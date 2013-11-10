@@ -7,7 +7,7 @@ class Feed < ActiveRecord::Base
   validates_uniqueness_of :url
 
   def crawl
-    Jobs.create jobs
+    Job.create jobs
     self.count += 1
     save
   end

@@ -5,7 +5,7 @@ $green: #078c40;
 $hover: #146f3e;
 
 html, body {
-  background-color: #fffaf4; //#fff8f2;
+  background-color: #fffaf4;
   font-size: 14px;
   color: $black;
 }
@@ -26,6 +26,14 @@ html, body {
   }
 }
 
+h3 {
+  margin: 1.15em 0 0.75em !important;
+}
+
 .right {
   float: right;
+}
+
+.hidden {
+  display: none;
 }

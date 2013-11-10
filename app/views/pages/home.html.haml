@@ -1,29 +1,16 @@
 #layout.pure-g-r
-  #option.pure-u
-    %h3 Position
-    %ul
-      = page_links({:design => 'Designer', :engineer => 'Engineer', :data => 'Data Science', :devop => 'Devops'})
-      / %li Designer
-      / %li Engineer
-      / %li Data Science
-      / %li Devops
-      / %li Manager
-      / %li Mobile Apps
-      / %li Networks
-      / %li Support
-
-    %h3 Experience
-    %ul
-      %li Junior
-      %li Mid Level
-      %li Senior
-
-    %h3 Location
-    %ul
-      %li Close locations...
+  #refine.pure-u
+    = refine_links
 
   #main.pure-u-1
-    %h2= "#{@total} Jobs"
+    #search.pure-g
+      .pure-u-1-2
+        %h4 What:
+        %input.what{:value => 'Python, Ruby'}
+      .pure-u-1-2
+        %h4 Where:
+        %input.where{:value => 'Sydney'}
+    %h2= "#{@total} jobs hunted"
     %ul#listing
       - @jobs.each do |job|
         %li
@@ -37,4 +24,4 @@
     %h3 Connect with Tech Savvy
     .social
       %a.facebook{href: '//facebook.com/TechSavvyJobs', target: '_blank'} Facebook
-      %a.twitter{href: '//twitter.com/TechSavvyJobs', target: '_blank'} Twitter
+      %a.twitter{href: '//twitter.com/TechSavvyApp', target: '_blank'} Twitter

@@ -41,6 +41,7 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'jquery-ui-rails', '3.0.1'
 gem 'jquery-rails', '3.0.4'
 gem 'devise', '3.1.0'
 gem 'dotiw', '1.1.1'

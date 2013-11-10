@@ -1,4 +1,13 @@
 module ApplicationHelper
+  def method_missing(method, *args, &block)
+    value = Settings.get(method.to_s)
+    if value.present?
+      value
+    else
+      super
+    end
+  end
+
   def page_links(pages, menu=true)
     capture_haml do
       head = true
@@ -23,15 +32,6 @@ module ApplicationHelper
           haml_concat link_to text, path
         end
       end
-    end
-  end
-
-  def method_missing(method, *args, &block)
-    value = Settings.get(method.to_s)
-    if value.present?
-      value
-    else
-      super
     end
   end
 

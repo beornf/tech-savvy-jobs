@@ -47,17 +47,8 @@ module Spider
     end
   end
 
-  def layout(spec)
-    crawler = Crawler.new spec, url
-    info = crawler.scrape
-    crawler.proc.each do |field, code|
-      info[field] = info[field].instance_eval code
-    end
-    info
-  end
-
   def exists?
-    @exists ||= ['200', '301'].include? Net::HTTP.new(uri.host).
+    ['200', '301'].include? Net::HTTP.new(uri.host).
       request_head(uri.path).code
   end
 
@@ -67,6 +58,15 @@ module Spider
 
   def uri
     @uri ||= URI(url.downcase)
+  end
+
+  def layout(spec)
+    crawler = Crawler.new spec, url
+    info = crawler.scrape
+    crawler.proc.each do |field, code|
+      info[field] = info[field].instance_eval code
+    end
+    info
   end
 
   def self.digest(string)

@@ -1,0 +1,53 @@
+#refine {
+  > *:not(h3) {
+    padding: 0 0 0 15px;
+  }
+  ul {
+    margin: 0;
+    list-style-type: none;
+    li {
+      margin-bottom: 2px;
+    }
+    a {
+      text-decoration: none;
+      color: #5d5d5d;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .show {
+    padding-top: 1px;
+    span {
+      color: $green;
+      cursor: pointer;
+    }
+  }
+}
+
+#promo h3 {
+  text-align: center;
+}
+
+.facebook {
+  background: image-url("facebook.png") no-repeat;
+}
+
+.twitter {
+  background: image-url("twitter.png") no-repeat;
+}
+
+.social {
+  line-height: 0;
+  text-align: center;
+  a {
+    width: 50px;
+    height: 50px;
+    margin-right: 11px;
+    font-size: 0;
+    display: inline-block;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -4,7 +4,30 @@ defaults: &defaults
   meta_author: Tech Savvy Jobs Pty Ltd
   meta_keywords: "Tech, Savvy, Jobs, IT"
   meta_viewport: "width=device-width, initial-scale=1, maximum-scale=1"
+  jui_url: http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/pepper-grinder/jquery-ui.css
   shim_url: http://html5shim.googlecode.com/svn/trunk/html5.js
+  refine:
+    role:
+      analyst: Analyst
+      backend: Back-End
+      designer: Designer
+      devops: Devops
+      engineer: Engineer
+      frontend: Front-End
+      management: Management
+      mobile: Mobile Apps
+      support: Support
+
+    experience:
+      junior: Junior
+      midlevel: Mid Level
+      senior: Senior
+
+    location:
+      sf: San Francisco
+      syd: Sydney
+      mel: Melbourne
+      ny: New York
 
 development:
   <<: *defaults

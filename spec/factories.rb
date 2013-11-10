@@ -21,23 +21,23 @@ FactoryGirl.define do
     end
   end
 
-  factory :lead do
-    title "Condé Nast: Front End Engineer"
-    url "https://jobs.37signals.com/jobs/13495"
+  factory :job do
+    title "Data Engineer"
+    url "https://jobs.37signals.com/jobs/13658"
 
     trait :bounce do
       url "http://careers.stackoverflow.com/jobs/39734/data-warehouse-engineer-amazon"
     end
 
     trait :valid do
-      company "Condé Nast"
-      location "New York"
-      site "http://www.condenast.com/careers"
+      company "Harvest Exchange"
+      location "Chicago, IL"
+      site "http://www.hvst.com/"
     end
 
-    after(:build) do |lead|
-      lead.feed = FactoryGirl.build(:feed)
-      lead.feed.fetch = "content css=.listing-container, html
+    after(:build) do |job|
+      job.feed = FactoryGirl.build(:feed)
+      job.feed.fetch = "content css=.listing-container, html
         company css=.company
         location css=.location; split(':')[1].strip
         site css=.listing-header-container, html; hyperlink"

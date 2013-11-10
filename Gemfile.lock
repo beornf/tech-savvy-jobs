@@ -285,6 +285,7 @@ DEPENDENCIES
   high_voltage (= 1.2.4)
   hirb
   jquery-rails (= 3.0.4)
+  jquery-ui-rails (= 3.0.1)
   kaminari
   pg
   quiet_assets
